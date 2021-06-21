@@ -8,5 +8,5 @@ type User struct {
 	Address      string
 	CreatedAt    string
 	UpdatedAt    string
-	PassApp      []PassApp
+	//PassApp      []PassApp
 }

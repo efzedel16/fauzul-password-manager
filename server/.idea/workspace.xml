@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62c3f9e3-98da-4eef-8282-6c634fd7443f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/formatters/userFormatter.go" afterDir="false" />
+    <list default="true" id="62c3f9e3-98da-4eef-8282-6c634fd7443f" name="Default Changelist" comment="Fix userEntity, userRoute, UserRepository; Create userFormatter, inputUserSignIn,">
+      <change afterPath="$PROJECT_DIR$/../client/.idea/client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/API/FauzulPasswordManager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/craco.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/SignUpPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/store/action/userAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/store/reducer/userReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/store/rootReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/store/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/UserEntity.go" beforeDir="false" afterPath="$PROJECT_DIR$/entities/UserEntity.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs/userInput.go" beforeDir="false" afterPath="$PROJECT_DIR$/inputs/userInput.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/UserRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/UserRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/userRoute.go" beforeDir="false" afterPath="$PROJECT_DIR$/routes/userRoute.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/ConnectDb.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/connectDb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities/PasswordEntity.go" beforeDir="false" afterPath="$PROJECT_DIR$/entities/passwordEntity.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities/UserEntity.go" beforeDir="false" afterPath="$PROJECT_DIR$/entities/userEntity.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formatters/userFormatter.go" beforeDir="false" afterPath="$PROJECT_DIR$/formatters/userFormatter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/UserRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/userRepository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/userService.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/userService.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +76,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -65,6 +95,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Fix userEntity, userRoute, UserRepository; Create userFormatter, inputUserSignIn," />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix userEntity, userRoute, UserRepository; Create userFormatter, inputUserSignIn," />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
