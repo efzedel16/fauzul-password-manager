@@ -1,54 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af64e4c8-8c77-40fa-b8ec-02deb63c8f3f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/API/FauzulPasswordManager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/craco.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignUpPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/action/userAction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reducer/userReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/rootReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tailwind.config.js" afterDir="false" />
+    <list default="true" id="2a61fe06-5c42-4ab0-9fd2-952ae6113268" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/craco.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/craco.config.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignUpPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignUpPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action/userAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/userAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/userReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tailwind.config.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/config/ConnectDb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/config/connectDb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/entities/PasswordEntity.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/entities/passwordEntity.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/entities/UserEntity.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/entities/userEntity.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/formatters/userFormatter.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/formatters/userFormatter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../server/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../server/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/repositories/UserRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/repositories/userRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/services/userService.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/services/userService.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" url="file://F:/Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1uFTScGYPlZxUY8M7hc0afKQmPx" />
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
+  <component name="ProjectId" id="1uFgKoApMgelk1CamYW4TVE7jIc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -58,20 +48,23 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\efzed\Desktop\assessment-bootcamp\client\node_modules\prettier" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\efzed\Desktop\assessment-bootcamp\client\src" />
+      <recent name="C:\Users\efzed\Desktop\assessment-bootcamp\client\src\pages" />
     </key>
   </component>
   <component name="RunManager">

@@ -6,14 +6,10 @@ import { userSignUp } from "../store/action/userAction";
 
 const SignUpPage = () => {
   const dispatch = useDispatch(),
-    [fullName, setFullName] = useState(""),
-    [address, setAddress] = useState(""),
     [email, setEmail] = useState(""),
     [password, setPassword] = useState(""),
     submitSignUp = () => {
       const data = {
-        fullName: fullName,
-        address: address,
         email: email,
         password: password,
       };

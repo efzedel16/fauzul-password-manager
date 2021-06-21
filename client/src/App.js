@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignUpPage from "./pages/SignUpPage";
 
-const App = () => {
+function App() {
   return (
     <Router>
       <Switch>
@@ -9,6 +9,6 @@ const App = () => {
       </Switch>
     </Router>
   );
-};
+}
 
 export default App;

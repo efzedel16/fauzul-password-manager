@@ -1,15 +1,16 @@
 {
-  "name": "fauzul_password_manager",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.2",
-    "@headlessui/react": "^1.2.0",
     "@heroicons/react": "^1.0.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
+    "postcss": "^7.0.36",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
@@ -17,6 +18,7 @@
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -24,10 +26,6 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
-  },
-  "engines": {
-    "node": "16.3.0",
-    "npm": "7.15.1"
   },
   "eslintConfig": {
     "extends": [
@@ -47,11 +45,11 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "tailwindcss": "^2.2.2"
-  },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "craco.config.js",
+  "main": "index.js",
+  "devDependencies": {
+    "prettier": "2.3.1"
+  },
   "author": "",
   "license": "ISC"
 }

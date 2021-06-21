@@ -9,13 +9,13 @@ const userReducer = (state = initState, action) => {
     case "USER_LOADING":
       return { ...state, isLoading: true };
     case "USER_SIGN_UP":
-      return { ...state, member: action.payload, isLoading: false };
+      return { ...state, user: action.payload, isLoading: false };
     case "USER_SIGN_IN":
       localStorage.setItem("access_token", action.payload.authorization);
-      return { ...state, member: action.payload, isLoading: false };
+      return { ...state, user: action.payload, isLoading: false };
     case "USER_SIGN_OUT":
       localStorage.removeItem("access_token");
-      return { ...state, member: null };
+      return { ...state, user: null };
     case "USER_ERROR":
       return { ...state, error: action.payload, isLoading: false };
     default:
