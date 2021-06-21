@@ -4,7 +4,7 @@ type User struct {
   Id        int `json:"id"`
   FullName  string `json:"full_name"`
   Email     string `json:"email"`
-  Password  string `json:"password"`
+  PasswordHash string `json:"password"`
   Address   string `json:"address"`
   PassApp   []PassApp `json:"pass_app"`
   CreatedAt string `json:"created_at"`
