@@ -1,6 +1,7 @@
 package handlers
 
 import (
+  "PasswordManager/auth"
   "PasswordManager/inputs"
   "PasswordManager/services"
   "github.com/gin-gonic/gin"
@@ -8,11 +9,12 @@ import (
 )
 
 type userHandler struct {
+  authService auth.AuthService
   userService services.UserService
 }
 
-func NewUserHandler(userService services.UserService) *userHandler {
-  return &userHandler{userService}
+func NewUserHandler(authService auth.AuthService, userService services.UserService) *userHandler {
+  return &userHandler{authService, userService}
 }
 
 func (h *userHandler) SignUpUser(c *gin.Context) {
