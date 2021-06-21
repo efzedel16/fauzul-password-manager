@@ -2,21 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62c3f9e3-98da-4eef-8282-6c634fd7443f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inputs/userInput.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/userService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/UserEntity.go" beforeDir="false" afterPath="$PROJECT_DIR$/entities/UserEntity.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/UserRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/UserRepository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/authService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/ConnectDb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hendlers/userHandler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/userRoute.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputs/userInput.go" beforeDir="false" afterPath="$PROJECT_DIR$/inputs/userInput.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/userService.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/userService.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://F:/Program Files/Go" />
   <component name="Git.Settings">
@@ -35,6 +39,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go Application" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />

@@ -11,14 +11,31 @@ type userService struct {
   userRepository repositories.UserRepository
 }
 
-func NewUserService(userRepository repository.userRepository) *userService {
+func NewUserService(userRepository repositories.UserRepository) *userService {
   return &userService{userRepository}
 }
 
 type UserService interface {
-  SignUpUser(inputSignUp inputs.InputSignUp) (entities.User, error)
+  SignUpUser(InputUserSignUp inputs.InputUserSignUp) (entities.User, error)
 }
 
-func (s *userService) SignUpUser(inputSignUp inputs.InputUserSignUp) (entities.User, error) {
-  passHash, err :=  bcrypt.GenerateFromPassword([])
+func (s *userService) SignUpUser(InputUserSignUp inputs.InputUserSignUp) (entities.User, error) {
+  passHash, err :=  bcrypt.GenerateFromPassword([]byte(InputUserSignUp.Password), bcrypt.DefaultCost)
+  userData := entities.User{
+    FullName: InputUserSignUp.FullName,
+    Address: InputUserSignUp.Address,
+    Email: InputUserSignUp.Email,
+    PasswordHash: string(passHash),
+  }
+
+  if err != nil {
+    return userData, err
+  }
+
+  newUser, err := s.userRepository.CreateUser(userData)
+  if err != nil {
+    return newUser, err
+  }
+
+  return newUser, nil
 }
