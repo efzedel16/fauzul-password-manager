@@ -28,14 +28,14 @@ func UserFormat(data entities.User) UserFormatter {
 	}
 }
 
-func AllUsersFormat(datas []entities.User) []UserFormatter {
-	var formatter []UserFormatter
-	for _, data := range datas {
-		formatter = append(formatter, UserFormat(data))
-	}
-
-	return formatter
-}
+//func AllUsersFormat(datas []entities.User) []UserFormatter {
+//	var formatter []UserFormatter
+//	for _, data := range datas {
+//		formatter = append(formatter, UserFormat(data))
+//	}
+//
+//	return formatter
+//}
 
 func UserSignInFormat(data entities.User, token string) UserSignInFormatter {
 	return UserSignInFormatter{

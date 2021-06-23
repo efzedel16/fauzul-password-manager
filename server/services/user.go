@@ -6,41 +6,37 @@ import (
 	"FauzulPasswordManager/formatters"
 	"FauzulPasswordManager/inputs"
 	"FauzulPasswordManager/repositories"
-	"fmt"
 	"golang.org/x/crypto/bcrypt"
-	"time"
 )
 
-type service struct {
-	auth       auth.AuthService
-	repository repositories.UserRepository
+type userService struct {
+	authService    auth.AuthService
+	userRepository repositories.UserRepository
 }
 
-func NewUserService(auth auth.AuthService, repository repositories.UserRepository) *service {
-	return &service{auth, repository}
+func NewUserService(authService auth.AuthService, userRepository repositories.UserRepository) *userService {
+	return &userService{authService, userRepository}
 }
 
 type UserService interface {
 	SignUp(input inputs.SignUp) (formatters.UserFormatter, error)
 	SignIn(input inputs.SignIn) (formatters.UserSignInFormatter, error)
-	Update(id int, input inputs.UpdateUser) (entities.User, error)
-	Delete(id int) (string, error)
-	GetAll() ([]formatters.UserFormatter, error)
+	//Update(id int, input inputs.UpdateUser) (formatters.UserFormatter, error)
+	//Delete(id int) (string, error)
+	//GetAll() ([]formatters.UserFormatter, error)
+	GetById(id int) (formatters.UserFormatter, error)
 }
 
-func (s *service) SignUp(input inputs.SignUp) (formatters.UserFormatter, error) {
-	passHash, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.DefaultCost)
+func (s *userService) SignUp(input inputs.SignUp) (formatters.UserFormatter, error) {
+	passHash, err := bcrypt.GenerateFromPassword([]byte(input.Pass), bcrypt.DefaultCost)
 	data := entities.User{
-		FullName:     input.FullName,
-		Address:      input.Address,
-		Email:        input.Email,
-		PasswordHash: string(passHash),
-		CreatedAt:    time.Now(),
-		UpdatedAt:    time.Now(),
-		//DeletedAt: time.Now(),
+		FullName: input.FullName,
+		Address:  input.Address,
+		Email:    input.Email,
+		PassHash: string(passHash),
 	}
 
-	newData, err := s.repository.Create(data)
+	newData, err := s.userRepository.Create(data)
 	if err != nil {
 		return formatters.UserFormatter{}, err
 	}
@@ -49,8 +45,8 @@ func (s *service) SignUp(input inputs.SignUp) (formatters.UserFormatter, error) 
 	return formatter, nil
 }
 
-func (s *service) SignIn(input inputs.SignIn) (formatters.UserSignInFormatter, error) {
-	data, err := s.repository.FindByEmail(input.Email)
+func (s *userService) SignIn(input inputs.SignIn) (formatters.UserSignInFormatter, error) {
+	data, err := s.userRepository.FindByEmail(input.Email)
 	if err != nil {
 		return formatters.UserSignInFormatter{}, err
 	}
@@ -59,55 +55,69 @@ func (s *service) SignIn(input inputs.SignIn) (formatters.UserSignInFormatter, e
 		return formatters.UserSignInFormatter{}, err
 	}
 
-	if err := bcrypt.CompareHashAndPassword([]byte(data.PasswordHash), []byte(input.Password)); err != nil {
+	if err := bcrypt.CompareHashAndPassword([]byte(data.PassHash), []byte(input.Pass)); err != nil {
 		return formatters.UserSignInFormatter{}, err
 	}
 
-	token, _ := s.auth.Generate(data.Id)
+	token, _ := s.authService.Generate(data.Id)
 	formatter := formatters.UserSignInFormat(data, token)
 	return formatter, nil
 }
 
-func (s *service) Update(id int, input inputs.UpdateUser) (entities.User, error) {
-	var dataUpdate = map[string]interface{}{}
+//func (s *userService) Update(id int, input inputs.UpdateUser) (formatters.UserFormatter, error) {
+//	var dataUpdate = map[string]interface{}{}
+//
+//	if input.FullName != "" || len(input.FullName) == 0 {
+//		dataUpdate["full_name"] = input.FullName
+//	}
+//
+//	if input.Address != "" || len(input.Address) == 0 {
+//		dataUpdate["address"] = input.Address
+//	}
+//
+//	if input.Email != "" || len(input.Email) == 0 {
+//		dataUpdate["email"] = input.Email
+//	}
+//
+//	dataUpdate["updated_at"] = time.Now()
+//	data, err := s.userRepository.Update(id, dataUpdate)
+//	if err != nil {
+//		return formatters.UserFormatter{}, err
+//	}
+//
+//	formatter := formatters.UserFormat(data)
+//	return formatter, nil
+//}
 
-	if input.FullName != "" || len(input.FullName) == 0 {
-		dataUpdate["full_name"] = input.FullName
-	}
+//func (s *userService) Delete(id int) (string, error) {
+//	data, err := s.userRepository.Delete(id)
+//	if err != nil || data == "error" {
+//		return data, err
+//	}
+//
+//	msg := fmt.Sprintf("successfully delete user id %v", id)
+//	return msg, nil
+//}
 
-	if input.Address != "" || len(input.Address) == 0 {
-		dataUpdate["address"] = input.Address
-	}
+//func (s *userService) GetAll() ([]formatters.UserFormatter, error) {
+//	datas, err := s.userRepository.FindAll()
+//	if err != nil {
+//		return []formatters.UserFormatter{}, err
+//	}
+//
+//	formatter := formatters.AllUsersFormat(datas)
+//	return formatter, nil
+//}
 
-	if input.Email != "" || len(input.Email) == 0 {
-		dataUpdate["email"] = input.Email
-	}
-
-	dataUpdate["updated_at"] = time.Now()
-	data, err := s.repository.Update(id, dataUpdate)
+func (s *userService) GetById(id int) (formatters.UserFormatter, error) {
+	data, err := s.userRepository.FindById(id)
 	if err != nil {
-		return data, err
+		return formatters.UserFormatter{}, err
 	}
 
-	return data, nil
-}
-
-func (s *service) Delete(id int) (string, error) {
-	data, err := s.repository.Delete(id)
-	if err != nil || data == "error" {
-		return data, err
+	if data.Id != 0 {
+		return formatters.UserFormatter{}, err
 	}
 
-	msg := fmt.Sprintf("successfully delete user id %v", id)
-	return msg, nil
-}
-
-func (s *service) GetAll() ([]formatters.UserFormatter, error) {
-	datas, err := s.repository.FindAll()
-	if err != nil {
-		return []formatters.UserFormatter{}, err
-	}
-
-	formatter := formatters.AllUsersFormat(datas)
-	return formatter, nil
+	return formatters.UserFormat(data), nil
 }
