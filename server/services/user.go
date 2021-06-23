@@ -12,7 +12,7 @@ import (
 )
 
 type service struct {
-	auth auth.AuthService
+	auth       auth.AuthService
 	repository repositories.UserRepository
 }
 
@@ -35,6 +35,9 @@ func (s *service) SignUp(input inputs.SignUp) (formatters.UserFormatter, error) 
 		Address:      input.Address,
 		Email:        input.Email,
 		PasswordHash: string(passHash),
+		CreatedAt:    time.Now(),
+		UpdatedAt:    time.Now(),
+		//DeletedAt: time.Now(),
 	}
 
 	newData, err := s.repository.Create(data)

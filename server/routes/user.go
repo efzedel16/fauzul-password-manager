@@ -18,7 +18,6 @@ var (
 )
 
 func User(r *gin.Engine) {
-	user := r.Group("user")
-	user.POST("/signup", userHandler.SignUp)
-	user.POST("/signin", userHandler.SignIn)
+	r.POST("/signup", userHandler.SignUp)
+	r.POST("/signin", userHandler.SignIn)
 }
