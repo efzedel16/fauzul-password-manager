@@ -11,6 +11,7 @@ func main() {
 	r.Use(auth.CORSMiddleware())
 
 	routes.User(r)
+	routes.Pass(r)
 
 	if err := r.Run(); err != nil {
 		return
