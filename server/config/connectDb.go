@@ -1,7 +1,7 @@
 package config
 
 import (
-  "PasswordManager/entities"
+  "FauzulPasswordManager/entities"
   "fmt"
   "github.com/joho/godotenv"
   "gorm.io/driver/mysql"

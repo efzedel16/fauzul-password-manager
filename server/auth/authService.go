@@ -6,27 +6,27 @@ import (
   "os"
 )
 
-var secretKey  = os.Getenv("JWT_SECRET")
+var key  = os.Getenv("JWT_SECRET")
 
-type authService struct {
+type auth struct {
 }
 
-func NewAuthService() *authService {
-  return &authService{}
+func NewAuthService() *auth {
+  return &auth{}
 }
 
 type AuthService interface {
-  GenerateToken(userId int) (string, error)
-  TokenValidation(encodedToken string) (*jwt.Token, error)
+  Generate(id int) (string, error)
+  Validation(encoded string) (*jwt.Token, error)
 }
 
-func (s *authService) GenerateToken(userId int) (string, error) {
-  userPayload := jwt.MapClaims{
-    "user_id" : userId,
+func (s *auth) Generate(id int) (string, error) {
+  payload := jwt.MapClaims{
+    "user_id" : id,
   }
 
-  userToken := jwt.NewWithClaims(jwt.SigningMethodHS512, userPayload)
-  signature, err := userToken.SignedString([]byte(secretKey))
+  token := jwt.NewWithClaims(jwt.SigningMethodHS512, payload)
+  signature, err := token.SignedString([]byte(key))
   if err != nil {
     return signature, err
   }
@@ -34,18 +34,18 @@ func (s *authService) GenerateToken(userId int) (string, error) {
   return signature, nil
 }
 
-func (s *authService) TokenValidation(encodedToken string) (*jwt.Token, error) {
-  userToken, err := jwt.Parse(encodedToken, func(token *jwt.Token) (interface{}, error) {
+func (s *auth) Validation(encoded string) (*jwt.Token, error) {
+  token, err := jwt.Parse(encoded, func(token *jwt.Token) (interface{}, error) {
     if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-      return nil, errors.New("wrong token")
+      return nil, errors.New("invalid token")
     }
 
-    return secretKey, nil
+    return key, nil
   })
 
   if err != nil {
-    return userToken, err
+    return token, err
   }
 
-  return userToken, nil
+  return token, nil
 }

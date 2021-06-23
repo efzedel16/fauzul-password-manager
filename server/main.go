@@ -1,14 +1,14 @@
 package main
 
 import (
-  "PasswordManager/routes"
+  "FauzulPasswordManager/routes"
   "github.com/gin-gonic/gin"
 )
 
 func main() {
   r := gin.Default()
 
-  routes.UserRoute(r)
+  routes.User(r)
 
   if err := r.Run(); err != nil {
     return
