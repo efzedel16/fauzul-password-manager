@@ -108,6 +108,6 @@ func (s *service) GetAll() ([]formatters.UserFormatter, error) {
 		return []formatters.UserFormatter{}, err
 	}
 
-	formatter := formatters.UsersFormat(datas)
+	formatter := formatters.AllUsersFormat(datas)
 	return formatter, nil
 }
