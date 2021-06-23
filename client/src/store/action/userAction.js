@@ -13,6 +13,7 @@ export const signUp = (payload) => {
       console.log(data);
       return dispatch({ payload: data, type: "SIGN_UP" });
     } catch (e) {
+      dispatch({ type: "ERROR" });
       console.log(e.response);
     }
   };
@@ -31,7 +32,12 @@ export const signIn = (payload) => {
       console.log(data);
       return dispatch({ payload: data, type: "SIGN_IN" });
     } catch (e) {
+      dispatch({ type: "ERROR" });
       console.log(e.response);
     }
   };
 };
+
+export const signOut = () => ({
+  type: "SIGN_OUT",
+});
