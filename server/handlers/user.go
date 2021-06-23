@@ -48,3 +48,15 @@ func (h *handler) SignIn(c *gin.Context) {
 
   c.JSON(http.StatusOK, data)
 }
+
+//func (h *handler) Update(id int, input inputs.UpdateUser) (entities.User, error) {
+//
+//}
+//
+//func (h *handler) Delete(id int) (string, error) {
+//
+//}
+//
+//func (h *handler) GetAll() ([]formatters.UserFormatter, error) {
+//
+//}

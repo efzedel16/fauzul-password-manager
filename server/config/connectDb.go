@@ -1,7 +1,7 @@
 package config
 
 import (
-  "FauzulPasswordManager/entities"
+  "FauzulPasswordManager/migrate"
   "fmt"
   "github.com/joho/godotenv"
   "gorm.io/driver/mysql"
@@ -23,7 +23,7 @@ func ConnectDb() *gorm.DB {
     log.Fatal(err.Error())
   }
 
-  if err := db.AutoMigrate(&entities.User{}); err != nil {
+  if err := db.AutoMigrate(&migrate.User{}, &migrate.Password{}); err != nil {
     return nil
   }
 

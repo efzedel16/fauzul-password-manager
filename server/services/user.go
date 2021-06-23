@@ -6,7 +6,9 @@ import (
 	"FauzulPasswordManager/formatters"
 	"FauzulPasswordManager/inputs"
 	"FauzulPasswordManager/repositories"
+	"fmt"
 	"golang.org/x/crypto/bcrypt"
+	"time"
 )
 
 type service struct {
@@ -21,8 +23,8 @@ func NewUserService(auth auth.AuthService, repository repositories.UserRepositor
 type UserService interface {
 	SignUp(input inputs.SignUp) (formatters.UserFormatter, error)
 	SignIn(input inputs.SignIn) (formatters.UserSignInFormatter, error)
-	//Update(id int, input inputs.UpdateUser) (entities.User, error)
-	//Delete(id int) (entities.User, error)
+	Update(id int, input inputs.UpdateUser) (entities.User, error)
+	Delete(id int) (string, error)
 	GetAll() ([]formatters.UserFormatter, error)
 }
 
@@ -63,28 +65,39 @@ func (s *service) SignIn(input inputs.SignIn) (formatters.UserSignInFormatter, e
 	return formatter, nil
 }
 
-//func (s *service) Update(id int, input inputs.UpdateUser) (entities.User, error) {
-//	var dataUpdate = map[string]interface{}{}
-//
-//	if input.FullName != "" || len(input.FullName) == 0 {
-//		dataUpdate["full_name"] = input.FullName
-//	}
-//
-//	if input.Address != "" || len(input.Address) == 0 {
-//		dataUpdate["address"] = input.Address
-//	}
-//
-//	if input.Email != "" || len(input.Email) == 0 {
-//		dataUpdate["email"] = input.Email
-//	}
-//
-//	dataUpdate["updated_at"] = time.Now()
-//}
+func (s *service) Update(id int, input inputs.UpdateUser) (entities.User, error) {
+	var dataUpdate = map[string]interface{}{}
 
-//func (s *service) Delete(id int) (entities.User, error) {
-//
-//}
+	if input.FullName != "" || len(input.FullName) == 0 {
+		dataUpdate["full_name"] = input.FullName
+	}
 
+	if input.Address != "" || len(input.Address) == 0 {
+		dataUpdate["address"] = input.Address
+	}
+
+	if input.Email != "" || len(input.Email) == 0 {
+		dataUpdate["email"] = input.Email
+	}
+
+	dataUpdate["updated_at"] = time.Now()
+	data, err := s.repository.Update(id, dataUpdate)
+	if err != nil {
+		return data, err
+	}
+
+	return data, nil
+}
+
+func (s *service) Delete(id int) (string, error) {
+	data, err := s.repository.Delete(id)
+	if err != nil || data == "error" {
+		return data, err
+	}
+
+	msg := fmt.Sprintf("successfully delete user id %v", id)
+	return msg, nil
+}
 
 func (s *service) GetAll() ([]formatters.UserFormatter, error) {
 	datas, err := s.repository.FindAll()
