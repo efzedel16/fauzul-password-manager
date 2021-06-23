@@ -6,6 +6,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 )
 
 func AuthMiddle(authService auth.AuthService, userService services.UserService) gin.HandlerFunc {
@@ -24,7 +25,7 @@ func AuthMiddle(authService auth.AuthService, userService services.UserService) 
 			return
 		}
 
-		id := int(claim["user_id"].(float64))
+		id := strconv.Itoa(int(claim["user_id"].(float64)))
 		current, err := userService.GetById(id)
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "unauthorize user"})

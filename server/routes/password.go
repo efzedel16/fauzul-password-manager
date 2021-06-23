@@ -9,11 +9,14 @@ import (
 
 var (
 	passRepository = repositories.NewPassRepository(db)
-	passService    = services.NewPassService(authService, passRepository)
+	passService    = services.NewPassService(passRepository)
 	passHandler    = handlers.NewPassHandler(passService)
 )
 
 func Pass(r *gin.Engine) {
-	r.POST("/create", passHandler.Create)
-	//r.POST("/signin", passHandler.SignIn)
+	r.POST("/password", authMiddle, passHandler.Create)
+	r.GET("/passwords", authMiddle, passHandler.GetAllByUserId)
+	r.GET("/password/:pass_id", authMiddle, passHandler.GetById)
+	r.PUT("/password/:pass_id", authMiddle, passHandler.Update)
+	r.DELETE("/password/:pass_id", authMiddle, passHandler.Delete)
 }

@@ -49,14 +49,23 @@ func (h *userHandler) SignIn(c *gin.Context) {
 	c.JSON(http.StatusOK, data)
 }
 
-//func (h *handler) Update(id int, input inputs.UpdateUser) (entities.User, error) {
-//
-//}
+func (h *userHandler) GetAll(c *gin.Context) {
+	datas, err := h.userService.GetAll()
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
-//func (h *handler) Delete(id int) (string, error) {
-//
-//}
+	c.JSON(http.StatusOK, datas)
+}
 
-//func (h *handler) GetAll() ([]formatters.UserFormatter, error) {
-//
-//}
+func (h *userHandler) GetById(c *gin.Context) {
+	id := c.Params.ByName("user_id")
+	data, err := h.userService.GetById(id)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, data)
+}

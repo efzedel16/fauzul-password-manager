@@ -12,9 +12,9 @@ type SignIn struct {
 	Pass  string `json:"pass" binding:"required"`
 }
 
-type UpdateUser struct {
-	FullName string `json:"full_name"`
-	Address  string `json:"address"`
-	Email    string `json:"email"`
-	Pass     string `json:"pass"`
-}
+//type UpdateUser struct {
+//	FullName string `json:"full_name"`
+//	Address  string `json:"address"`
+//	Email    string `json:"email"`
+//	Pass     string `json:"pass"`
+//}

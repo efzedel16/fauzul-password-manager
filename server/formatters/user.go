@@ -7,7 +7,6 @@ type UserFormatter struct {
 	FullName string `json:"full_name"`
 	Email    string `json:"email"`
 	Address  string `json:"address"`
-	//Authorization string `json:"authorization"`
 }
 
 type UserSignInFormatter struct {
@@ -24,18 +23,17 @@ func UserFormat(data entities.User) UserFormatter {
 		FullName: data.FullName,
 		Address:  data.Address,
 		Email:    data.Email,
-		//Authorization: token,
 	}
 }
 
-//func AllUsersFormat(datas []entities.User) []UserFormatter {
-//	var formatter []UserFormatter
-//	for _, data := range datas {
-//		formatter = append(formatter, UserFormat(data))
-//	}
-//
-//	return formatter
-//}
+func AllUsersFormat(datas []entities.User) []UserFormatter {
+	var formatter []UserFormatter
+	for _, data := range datas {
+		formatter = append(formatter, UserFormat(data))
+	}
+
+	return formatter
+}
 
 func UserSignInFormat(data entities.User, token string) UserSignInFormatter {
 	return UserSignInFormatter{

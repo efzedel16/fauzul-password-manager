@@ -15,11 +15,11 @@ func NewPassRepository(db *gorm.DB) *passRepository {
 
 type PassRepository interface {
 	Create(data entities.Password) (entities.Password, error)
-	Update(id int, dataUpdate map[string]interface{}) (entities.Password, error)
-	Delete(id int) (string, error)
+	Update(id string, dataUpdate map[string]interface{}) (entities.Password, error)
+	Delete(id string) (string, error)
 	FindAll() ([]entities.Password, error)
-	FindById(id int) (entities.Password, error)
-	FindByUserId(id int) ([]entities.Password, error)
+	FindById(id string) (entities.Password, error)
+	FindByUserId(userId string) ([]entities.Password, error)
 }
 
 func (r *passRepository) Create(data entities.Password) (entities.Password, error) {
@@ -30,7 +30,7 @@ func (r *passRepository) Create(data entities.Password) (entities.Password, erro
 	return data, nil
 }
 
-func (r *passRepository) Update(id int, dataUpdate map[string]interface{}) (entities.Password, error) {
+func (r *passRepository) Update(id string, dataUpdate map[string]interface{}) (entities.Password, error) {
 	var data entities.Password
 
 	if err := r.db.Where("id = ?", id).Error; err != nil {
@@ -44,7 +44,7 @@ func (r *passRepository) Update(id int, dataUpdate map[string]interface{}) (enti
 	return data, nil
 }
 
-func (r *passRepository) Delete(id int) (string, error) {
+func (r *passRepository) Delete(id string) (string, error) {
 	var data entities.User
 
 	if err := r.db.Where("id = ?", id).Delete(&data).Error; err != nil {
@@ -64,7 +64,7 @@ func (r *passRepository) FindAll() ([]entities.Password, error) {
 	return datas, nil
 }
 
-func (r *passRepository) FindById(id int) (entities.Password, error) {
+func (r *passRepository) FindById(id string) (entities.Password, error) {
 	var data entities.Password
 
 	if err := r.db.Where("id = ?", id).Find(&data).Error; err != nil {
@@ -74,7 +74,7 @@ func (r *passRepository) FindById(id int) (entities.Password, error) {
 	return data, nil
 }
 
-func (r *passRepository) FindByUserId(userId int) ([]entities.Password, error) {
+func (r *passRepository) FindByUserId(userId string) ([]entities.Password, error) {
 	var data []entities.Password
 
 	if err := r.db.Where("user_id", userId).Find(&data).Error; err != nil {

@@ -1,51 +1,51 @@
 package auth
 
 import (
-  "errors"
-  "github.com/dgrijalva/jwt-go"
-  "os"
+	"errors"
+	"github.com/dgrijalva/jwt-go"
+	"os"
 )
 
-var key  = os.Getenv("JWT_SECRET")
+var key = os.Getenv("JWT_SECRET")
 
-type auth struct {
+type authService struct {
 }
 
-func NewAuthService() *auth {
-  return &auth{}
+func NewAuthService() *authService {
+	return &authService{}
 }
 
 type AuthService interface {
-  Generate(id int) (string, error)
-  Validation(encoded string) (*jwt.Token, error)
+	Generate(id int) (string, error)
+	Validation(encoded string) (*jwt.Token, error)
 }
 
-func (s *auth) Generate(id int) (string, error) {
-  payload := jwt.MapClaims{
-    "user_id" : id,
-  }
+func (s *authService) Generate(id int) (string, error) {
+	payload := jwt.MapClaims{
+		"user_id": id,
+	}
 
-  token := jwt.NewWithClaims(jwt.SigningMethodHS512, payload)
-  signature, err := token.SignedString([]byte(key))
-  if err != nil {
-    return signature, err
-  }
+	token := jwt.NewWithClaims(jwt.SigningMethodHS512, payload)
+	signature, err := token.SignedString([]byte(key))
+	if err != nil {
+		return signature, err
+	}
 
-  return signature, nil
+	return signature, nil
 }
 
-func (s *auth) Validation(encoded string) (*jwt.Token, error) {
-  token, err := jwt.Parse(encoded, func(token *jwt.Token) (interface{}, error) {
-    if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-      return nil, errors.New("invalid token")
-    }
+func (s *authService) Validation(encoded string) (*jwt.Token, error) {
+	token, err := jwt.Parse(encoded, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, errors.New("invalid token")
+		}
 
-    return key, nil
-  })
+		return key, nil
+	})
 
-  if err != nil {
-    return token, err
-  }
+	if err != nil {
+		return token, err
+	}
 
-  return token, nil
+	return token, nil
 }
