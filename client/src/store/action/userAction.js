@@ -11,7 +11,6 @@ export const userSignUp = (payload) => {
       });
 
       console.log(data);
-
       return dispatch({ type: "USER_SIGN_UP", payload: data });
     } catch (e) {
       console.log(e.response);
