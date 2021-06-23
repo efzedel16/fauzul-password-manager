@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signUp } from "../../store/action/userAction";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const dispatch = useDispatch(),
@@ -24,25 +25,17 @@ const SignUp = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <img
-            className="mx-auto h-12 w-auto"
-            src="https://image.flaticon.com/icons/png/512/4773/4773761.png"
-            alt="Workflow"
-          />
+          <Link to="/">
+            <img
+              className="mx-auto h-12 w-auto"
+              src="https://image.flaticon.com/icons/png/512/4773/4773761.png"
+              alt="Workflow"
+            />
+          </Link>
 
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign up to your account
+            Sign up to secure your credentials
           </h2>
-
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Or{" "}
-            <a
-              href="#"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              already have an account? sign in
-            </a>
-          </p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={submitSignUp}>
@@ -58,7 +51,7 @@ const SignUp = () => {
                 type="text"
                 autoComplete="full-name"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                 placeholder="Full name"
                 onChange={(e) => {
                   e.preventDefault();
@@ -77,7 +70,7 @@ const SignUp = () => {
                 type="text"
                 autoComplete="address"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                 placeholder="Address"
                 onChange={(e) => {
                   e.preventDefault();
@@ -96,7 +89,7 @@ const SignUp = () => {
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                 placeholder="Email"
                 onChange={(e) => {
                   e.preventDefault();
@@ -115,7 +108,7 @@ const SignUp = () => {
                 type="password"
                 autoComplete="password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
                 onChange={(e) => {
                   e.preventDefault();
@@ -125,26 +118,25 @@ const SignUp = () => {
             </div>
           </div>
 
-          {/*<div className="flex justify-center">*/}
-          {/*  <div className="text-sm">*/}
-          {/*    <Link*/}
-          {/*      to="#"*/}
-          {/*      className="font-medium text-indigo-600 hover:text-indigo-500"*/}
-          {/*    >*/}
-          {/*      Forgot your password ?*/}
-          {/*    </Link>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
-
           <div>
             <button
               type="submit"
-              className=" w-full  py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className=" w-full  py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
               Sign up
             </button>
           </div>
         </form>
+
+        <p className="mt-2 text-center text-sm text-gray-600">
+          already have an account?{" "}
+          <Link
+            className="font-medium text-green-600 hover:text-green-500"
+            to="/signin"
+          >
+            sign in
+          </Link>
+        </p>
       </div>
     </div>
   );
