@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { userSignUp } from "../store/action/userAction";
+import { signUp } from "../../store/action/userAction";
 
-const SignUpPage = () => {
+const SignUp = () => {
   const dispatch = useDispatch(),
     [fullName, setfullName] = useState(""),
     [address, setAddress] = useState(""),
@@ -17,7 +17,7 @@ const SignUpPage = () => {
         password: password,
       };
       console.log(data);
-      dispatch(userSignUp(data));
+      dispatch(signUp(data));
     };
 
   return (
@@ -33,6 +33,16 @@ const SignUpPage = () => {
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign up to your account
           </h2>
+
+          <p className="mt-2 text-center text-sm text-gray-600">
+            Or{" "}
+            <a
+              href="#"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              already have an account? sign in
+            </a>
+          </p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={submitSignUp}>
@@ -140,4 +150,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default SignUp;
