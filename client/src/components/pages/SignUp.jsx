@@ -15,7 +15,7 @@ const SignUp = () => {
         full_name: fullName,
         address: address,
         email: email,
-        password: password,
+        pass: password,
       };
       console.log(data);
       dispatch(signUp(data));

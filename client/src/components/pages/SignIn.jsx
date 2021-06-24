@@ -11,7 +11,7 @@ const SignIn = () => {
       e.preventDefault();
       const data = {
         email: email,
-        password: password,
+        pass: password,
       };
       console.log(data);
       dispatch(signIn(data));
